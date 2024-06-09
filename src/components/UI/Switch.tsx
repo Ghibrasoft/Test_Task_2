@@ -3,7 +3,7 @@ import React from 'react';
 interface ISwitchProps {
     isOn: boolean;
     disabled?: boolean;
-    handleToggle?: () => void;
+    handleToggle: () => void;
 }
 const Switch: React.FC<ISwitchProps> = ({
     isOn,
