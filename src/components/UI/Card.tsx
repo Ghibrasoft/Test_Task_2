@@ -2,28 +2,30 @@ import React from 'react'
 
 
 interface IDefaultCardProps {
-    size: "default";
+    type: "default";
     avatar: string;
     title: string;
     description: string;
     about: string;
+    className?: string;
 }
 interface ISmallCardProps {
-    size: "small";
+    type: "small";
     logo: string;
     title: string;
     description: string;
     switch: React.ReactNode;
     isOn: boolean;
+    className?: string;
 }
 
 type CardProps = IDefaultCardProps | ISmallCardProps;
 
 const Card: React.FC<CardProps> = (props) => {
-    if (props.size === 'default') {
-        const { avatar, title, description, about } = props;
+    if (props.type === 'default') {
+        const { avatar, title, description, about, className } = props;
         return (
-            <div className='relative flex flex-col items-center gap-3 py-10 w-[380px] text-center ring-2 ring-violet-500/90 rounded-3xl'>
+            <div className={`relative flex flex-col items-center gap-3 py-10 w-[380px] h-[268px] text-center ring-2 ring-violet-500/90 rounded-3xl ${className}`}>
                 <img
                     alt='avatar'
                     src={avatar}
@@ -39,10 +41,10 @@ const Card: React.FC<CardProps> = (props) => {
             </div>
         )
     } else {
-        const { logo, title, description, switch: Switch, isOn } = props;
+        const { logo, title, description, switch: Switch, isOn, className } = props;
         const isOnClassName = isOn ? 'ring-2 ring-violet-500/90' : 'ring-gray-200'
         return (
-            <div className={`flex items-center justify-between w-[280px] ring-1 rounded-xl p-5 ${isOnClassName}`}>
+            <div className={`flex items-center justify-between w-[280px] h-20 ring-1 rounded-xl p-5 ${isOnClassName} ${className}`}>
                 <div className='flex items-center gap-2'>
                     <img
                         alt={`${title}-logo`}

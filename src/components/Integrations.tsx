@@ -11,43 +11,56 @@ const BUTTONS = [
 ];
 const CARD_CONTENT = [
     {
+        // key: 1,
+        type: "small",
         title: "Sapling",
         description: "HR Management",
-        logo: ""
+        logo: "https://via.placeholder.com/48"
     },
     {
+        // key: 4,
+        type: "default",
         title: "Lauren Robson",
         description: "HM Director",
         about: "“I want to lower PTO liability and keep my employees happy. I want to lower PTO liability.”",
-        avatar: ""
+        avatar: "https://via.placeholder.com/86"
     },
     {
+        // key: 2,
+        type: "small",
         title: "Workday",
-        description: "",
-        logo: "HR Management"
+        description: "HR Management",
+        logo: "https://via.placeholder.com/48"
     },
     {
+        // key: 3,
+        type: "small",
         title: "Xero",
         description: "Employers Base",
-        logo: ""
+        logo: "https://via.placeholder.com/48"
     },
     {
+        // key: 5,
+        type: "small",
         title: "Rippling",
         description: "Salary Management",
-        logo: ""
+        logo: "https://via.placeholder.com/48"
     },
     {
+        // key: 6,
+        type: "small",
         title: "Expensify",
-        description: "",
-        logo: "HR Management"
+        description: "HR Management",
+        logo: "https://via.placeholder.com/48"
     },
     {
+        // key: 7,
+        type: "small",
         title: "Zenefits",
-        description: "",
-        logo: "HR Management"
+        description: "HR Management",
+        logo: "https://via.placeholder.com/48"
     }
 ];
-
 const Integrations = () => {
     const [activeBtn, setActiveBtn] = useState("Small Business");
     const [activeSwitches, setActiveSwitches] = useState<boolean[]>([]);
@@ -76,7 +89,7 @@ const Integrations = () => {
 
 
     return (
-        <div className='h-screen'>
+        <div className='h-screen w-10/12 mx-auto'>
             {/* content */}
             <div className='flex flex-col gap-10 h-full'>
                 {/* title */}
@@ -106,31 +119,35 @@ const Integrations = () => {
                     </div>
 
                     {/* cards */}
-                    <div className='grid grid-cols-3 gap-x-32 gap-y-8'>
-                        {CARD_CONTENT.map(({ title, description, about, avatar, logo }, index) => (
-                            <div
-                                key={index}
-                                className={`flex items-center justify-between gap-5 ring-1 rounded-xl p-5 ${about ? 'row-span-3 col-span-1' : 'w-72 h-20 '} ${activeSwitches[index] ? 'ring-2 ring-violet-500/90' : 'ring-gray-200'}`}
-                            >
-                                <div className='flex items-center gap-2'>
-                                    <img
-                                        // alt={`${title}-logo`}
-                                        alt='lg'
-                                        src='https://via.placeholder.com/48'
-                                        className='w-12 h-12 object-fit rounded-xl bg-violet-200'
+                    <div className='grid grid-cols-3 gap-x-10 gap-y-5 w-full col-auto '>
+                        {CARD_CONTENT.map(({ type, title, description, about, avatar, logo }, index) => (
+                            type === 'default' ? (
+                                <div className='row-span-3 col-span-1 self-end'>
+                                    <Card
+                                        className='bg-violet-100/70'
+                                        key={index}
+                                        type={"default"}
+                                        title={title}
+                                        description={description}
+                                        about={about || ''}
+                                        avatar={avatar || ''}
                                     />
-                                    <div>
-                                        <h3>{title}</h3>
-                                        <span className='text-xs text-gray-950/90'>{description}</span>
-                                    </div>
                                 </div>
-
-                                <Switch
+                            ) : (
+                                <Card
+                                    className='card-connector'
+                                    key={index}
+                                    type={"small"}
+                                    title={title}
+                                    description={description}
+                                    logo={logo || ''}
                                     isOn={activeSwitches[index]}
-                                    // disabled={!activeSwitches[index]}
-                                    handleToggle={() => handleToggle(index)}
+                                    switch={<Switch
+                                        isOn={activeSwitches[index]}
+                                        handleToggle={() => handleToggle(index)}
+                                    />}
                                 />
-                            </div>
+                            )
                         ))}
                     </div>
                 </div>
