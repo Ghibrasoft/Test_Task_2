@@ -48,24 +48,24 @@
 
 /* 4th child (straight) */
 .card-connector:nth-child(4):after {
-  bottom: -10px;
+  bottom: -9.5px;
   right: -60px;
   border-top: 2px solid #c4b5fd;
 }
 .card-connector:nth-child(4):before {
-  top: -8.5px;
+  top: -9.5px;
   right: -118px;
   border-bottom: 2px solid #c4b5fd;
 }
 
 /* 5th child (straight) */
 .card-connector:nth-child(5):after {
-  bottom: -10px;
+  bottom: -9.5px;
   left: -60px;
   border-top: 2px solid #c4b5fd;
 }
 .card-connector:nth-child(5):before {
-  top: -8.5px;
+  top: -9.5px;
   left: -118px;
   border-bottom: 2px solid #c4b5fd;
 }

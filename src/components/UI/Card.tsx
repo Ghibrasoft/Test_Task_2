@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-interface IDefaultCardProps {
+interface IDefaultCardProps extends React.HTMLAttributes<HTMLDivElement> {
     type: "default";
     avatar: string;
     title: string;
@@ -9,7 +9,7 @@ interface IDefaultCardProps {
     about: string;
     className?: string;
 }
-interface ISmallCardProps {
+interface ISmallCardProps extends React.HTMLAttributes<HTMLDivElement> {
     type: "small";
     logo: string;
     title: string;

@@ -89,7 +89,7 @@ const Integrations = () => {
 
 
     return (
-        <div className='h-screen w-10/12 mx-auto'>
+        <div className='h-screen w-[1180px] mx-auto'>
             {/* content */}
             <div className='flex flex-col gap-10 h-full'>
                 {/* title */}
@@ -119,7 +119,7 @@ const Integrations = () => {
                     </div>
 
                     {/* cards */}
-                    <div className='grid grid-cols-3 gap-x-10 gap-y-5 w-full col-auto '>
+                    <div className='grid grid-cols-[auto,auto,auto] gap-x-10 gap-y-5 w-full'>
                         {CARD_CONTENT.map(({ type, title, description, about, avatar, logo }, index) => (
                             type === 'default' ? (
                                 <div className='row-span-3 col-span-1 self-end'>
@@ -135,7 +135,7 @@ const Integrations = () => {
                                 </div>
                             ) : (
                                 <Card
-                                    className='card-connector'
+                                    className='card-connector self-auto'
                                     key={index}
                                     type={"small"}
                                     title={title}
