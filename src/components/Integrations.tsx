@@ -93,9 +93,9 @@ const Integrations = () => {
             {/* content */}
             <div className='flex flex-col gap-10 h-full'>
                 {/* title */}
-                <div className='flex flex-col gap-8 w-[42%] mx-auto text-center'>
-                    <h1 className='text-5xl font-bold'>Easy Turn-Key Integration</h1>
-                    <p className='text-md text-gray-950/90'>
+                <div className='flex flex-col gap-8 w-[779px] mx-auto text-center'>
+                    <h1 className='text-6xl font-bold leading-[83px]'>Easy Turn-Key Integration</h1>
+                    <p className='text-[19px] text-gray-950/90 leading-7'>
                         Increase job satisfaction, improve engagement, decrease burnout
                         and lower payroll liability by reimagining what employees can do with their PTO.
                     </p>
@@ -119,7 +119,7 @@ const Integrations = () => {
                     </div>
 
                     {/* cards */}
-                    <div className='grid grid-cols-[auto,auto,auto] gap-x-10 gap-y-5 w-full'>
+                    <div className='grid grid-cols-[auto,auto,auto] gap-x-28 gap-y-5 place-items-center w-full'>
                         {CARD_CONTENT.map(({ type, title, description, about, avatar, logo }, index) => (
                             type === 'default' ? (
                                 <div className='row-span-3 col-span-1 self-end'>
