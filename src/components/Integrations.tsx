@@ -124,7 +124,7 @@ const Integrations = () => {
                             type === 'default' ? (
                                 <div className='row-span-3 col-span-1 self-end'>
                                     <Card
-                                        className='bg-violet-100/70'
+                                        className='bg-violet-50'
                                         key={index}
                                         type={"default"}
                                         title={title}

@@ -25,7 +25,7 @@ const Card: React.FC<CardProps> = (props) => {
     if (props.type === 'default') {
         const { avatar, title, description, about, className } = props;
         return (
-            <div className={`relative flex flex-col items-center gap-3 py-10 w-[380px] h-[268px] text-center ring-2 ring-violet-500/90 rounded-3xl ${className}`}>
+            <div className={`relative flex flex-col items-center gap-3 py-10 w-[380px] h-[268px] text-center ring-2 ring-violet-500/90 rounded-3xl z-10 ${className}`}>
                 <img
                     alt='avatar'
                     src={avatar}

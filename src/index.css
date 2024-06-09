@@ -9,7 +9,7 @@
 .card-connector::after {
   position: absolute;
   content: "";
-  width: 60px;
+  width: 47.5px;
   height: 50px;
   border: none;
 }
@@ -17,14 +17,14 @@
 /* 1st child */
 .card-connector:nth-child(1):after {
   bottom: -10px;
-  right: -60px;
+  right: -49px;
   border-top-right-radius: 16px;
   border-top: 2px solid #c4b5fd;
   border-right: 2px solid #c4b5fd;
 }
 .card-connector:nth-child(1):before {
   bottom: -60px;
-  right: -118px;
+  right: -95px;
   border-bottom-left-radius: 16px;
   border-bottom: 2px solid #c4b5fd;
   border-left: 2px solid #c4b5fd;
@@ -33,14 +33,14 @@
 /* 3rd child */
 .card-connector:nth-child(3):after {
   bottom: -10px;
-  left: -60px;
+  left: -48px;
   border-top-left-radius: 16px;
   border-top: 2px solid #c4b5fd;
   border-left: 2px solid #c4b5fd;
 }
 .card-connector:nth-child(3):before {
   bottom: -60px;
-  left: -118.5px;
+  left: -94px;
   border-bottom-right-radius: 16px;
   border-bottom: 2px solid #c4b5fd;
   border-right: 2px solid #c4b5fd;
@@ -49,38 +49,38 @@
 /* 4th child (straight) */
 .card-connector:nth-child(4):after {
   bottom: -9.5px;
-  right: -60px;
+  right: -48px;
   border-top: 2px solid #c4b5fd;
 }
 .card-connector:nth-child(4):before {
   top: -9.5px;
-  right: -118px;
+  right: -93px;
   border-bottom: 2px solid #c4b5fd;
 }
 
 /* 5th child (straight) */
 .card-connector:nth-child(5):after {
   bottom: -9.5px;
-  left: -60px;
+  left: -48px;
   border-top: 2px solid #c4b5fd;
 }
 .card-connector:nth-child(5):before {
   top: -9.5px;
-  left: -118px;
+  left: -93px;
   border-bottom: 2px solid #c4b5fd;
 }
 
 /* 6th child */
 .card-connector:nth-child(6):after {
   bottom: 40px;
-  right: -60px;
+  right: -49px;
   border-bottom-right-radius: 16px;
   border-bottom: 2px solid #c4b5fd;
   border-right: 2px solid #c4b5fd;
 }
 .card-connector:nth-child(6):before {
   bottom: 90px;
-  right: -118.5px;
+  right: -95px;
   border-top-left-radius: 16px;
   border-top: 2px solid #c4b5fd;
   border-left: 2px solid #c4b5fd;
@@ -89,14 +89,14 @@
 /* 7th child */
 .card-connector:nth-child(7):after {
   bottom: 40px;
-  left: -60px;
+  left: -48px;
   border-bottom-left-radius: 16px;
   border-bottom: 2px solid #c4b5fd;
   border-left: 2px solid #c4b5fd;
 }
 .card-connector:nth-child(7):before {
   bottom: 90px;
-  left: -118.5px;
+  left: -93.5px;
   border-top-right-radius: 16px;
   border-top: 2px solid #c4b5fd;
   border-right: 2px solid #c4b5fd;
