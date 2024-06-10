@@ -69,7 +69,7 @@ const Integrations = () => {
         setActiveSwitches(prevState => {
             const newState = [...prevState];
             newState[index] = !newState[index];
-            return newState
+            return newState;
         })
     };
 
@@ -80,13 +80,12 @@ const Integrations = () => {
             } else if (activeBtn === 'Medium Business') {
                 return title === 'Sapling' || title === 'Workday';
             } else {
-                return false;
+                return true;
             }
         })
 
         setActiveSwitches(initialSwitchState);
     }, [activeBtn]);
-
 
     return (
         <div className='h-screen w-[1180px] mx-auto'>
@@ -104,12 +103,11 @@ const Integrations = () => {
                 {/* cards & buttons */}
                 <div className='flex flex-col items-center gap-20'>
                     {/* buttons */}
-                    <div className='flex gap-3'>
+                    <div className='flex gap-2'>
                         {BUTTONS.map((title, index) => (
                             <Button
                                 key={index}
-                                type="secondary"
-                                className='font-bold'
+                                type="default"
                                 active={title === activeBtn}
                                 onClick={() => setActiveBtn(title)}
                             >

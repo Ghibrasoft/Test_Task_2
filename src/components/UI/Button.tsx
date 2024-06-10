@@ -23,16 +23,16 @@ const Button: React.FC<IButtonProps> = ({
 }) => {
     const typeClassName =
         type === 'primary' ?
-            'bg-violet-500/90 text-white text-sm hover:bg-violet-600 active:bg-violet-700 rounded-xl py-2 px-4' :
+            'bg-violet-500/90 text-white text-xs hover:bg-violet-600 active:bg-violet-700' :
             type === 'default' ?
-                'bg-violet-300/20 hover:bg-violet-300/30 active:bg-violet-300/10 text-white text-sm rounded-xl py-2 px-4' :
+                `hover:bg-violet-500/90 active:bg-violet-600  hover:text-white text-xs border-[1px] hover:border-violet-500/90 active:border-violet-600 ${active ? 'bg-violet-500/90 border-violet-500/90 text-white' : 'text-gray-500/90'}` :
                 type === 'secondary' ?
-                    `ring-1 ring-violet-500/90 text-violet-500/90 hover:bg-violet-500/90 hover:text-white active:bg-violet-600 text-sm rounded-xl py-2 px-4 ${active ? 'bg-violet-500/90 text-white' : ''}` :
-                    'hover:bg-gray-100 active:bg-gray-200 text-sm rounded-xl py-2 px-4';
+                    `ring-1 ring-violet-500/90 text-violet-500/90 hover:bg-violet-500/90 hover:text-white active:bg-violet-600 text-xs ${active ? 'bg-violet-500/90 text-white' : ''}` :
+                    'hover:bg-gray-100 active:bg-gray-200 text-xs';
 
     return (
         <button
-            className={`${typeClassName} ${className} transition duration-100 ease-in`}
+            className={`${typeClassName} ${className} flex items-center justify-center h-[38px] p-[15px] font-bold rounded-xl transition duration-100 ease-in`}
             onClick={onClick}
             disabled={disabled}
             role={role}
