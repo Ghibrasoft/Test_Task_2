@@ -28,29 +28,29 @@ const CARD_CONTENT = [
     {
         // key: 2,
         type: "small",
-        title: "Workday",
-        description: "HR Management",
-        logo: "https://via.placeholder.com/48"
-    },
-    {
-        // key: 3,
-        type: "small",
-        title: "Xero",
-        description: "Employers Base",
-        logo: "https://via.placeholder.com/48"
-    },
-    {
-        // key: 5,
-        type: "small",
         title: "Rippling",
         description: "Salary Management",
         logo: "https://via.placeholder.com/48"
     },
     {
-        // key: 6,
+        // key: 3,
+        type: "small",
+        title: "Workday",
+        description: "HR Management",
+        logo: "https://via.placeholder.com/48"
+    },
+    {
+        // key: 5,
         type: "small",
         title: "Expensify",
         description: "HR Management",
+        logo: "https://via.placeholder.com/48"
+    },
+    {
+        // key: 6,
+        type: "small",
+        title: "Xero",
+        description: "Employers Base",
         logo: "https://via.placeholder.com/48"
     },
     {
