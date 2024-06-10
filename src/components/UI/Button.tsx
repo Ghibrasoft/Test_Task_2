@@ -23,11 +23,11 @@ const Button: React.FC<IButtonProps> = ({
 }) => {
     const typeClassName =
         type === 'primary' ?
-            'bg-violet-500/90 text-white text-xs hover:bg-violet-600 active:bg-violet-700' :
+            'bg-vio-soft text-light-frost-pale text-xs hover:bg-vio active:bg-vio' :
             type === 'default' ?
-                `hover:bg-violet-500/90 active:bg-violet-600  hover:text-white text-xs border-[1px] hover:border-violet-500/90 active:border-violet-600 ${active ? 'bg-violet-500/90 border-violet-500/90 text-white' : 'text-gray-500/90'}` :
+                `hover:bg-vio-soft active:bg-vio hover:text-light-frost-pale text-xs border-[1px] border-frost-soft hover:border-vio-soft active:border-vio ${active ? 'bg-vio-soft border-vio-soft text-light-frost-pale' : 'text-vio-dark'}` :
                 type === 'secondary' ?
-                    `ring-1 ring-violet-500/90 text-violet-500/90 hover:bg-violet-500/90 hover:text-white active:bg-violet-600 text-xs ${active ? 'bg-violet-500/90 text-white' : ''}` :
+                    `ring-1 ring-vio-soft text-vio-soft hover:bg-vio-soft hover:text-light-frost-pale active:bg-vio text-xs ${active ? 'bg-vio-soft text-light-frost-pale' : ''}` :
                     'hover:bg-gray-100 active:bg-gray-200 text-xs';
 
     return (

@@ -93,7 +93,7 @@ const Integrations = () => {
             <div className='flex flex-col gap-10 h-full'>
                 {/* title */}
                 <div className='flex flex-col gap-8 w-[779px] mx-auto text-center'>
-                    <h1 className='text-6xl font-bold leading-[83px]'>Easy Turn-Key Integration</h1>
+                    <h1 className='text-6xl font-bold leading-[83px] text-vio-deep'>Easy Turn-Key Integration</h1>
                     <p className='text-[19px] text-gray-950/90 leading-7'>
                         Increase job satisfaction, improve engagement, decrease burnout
                         and lower payroll liability by reimagining what employees can do with their PTO.
@@ -118,7 +118,7 @@ const Integrations = () => {
 
                     {/* cards */}
                     <div className='grid grid-cols-[auto,auto,auto] gap-x-28 gap-y-5 place-items-center w-full'>
-                        {CARD_CONTENT.map(({ type, title, description, about, avatar, logo }, index) => (
+                        {CARD_CONTENT.map(({ type, title, description, about = '', avatar = '', logo = '' }, index) => (
                             type === 'default' ? (
                                 <div
                                     className='row-span-3 col-span-1 self-end'
@@ -128,8 +128,8 @@ const Integrations = () => {
                                         type={"default"}
                                         title={title}
                                         description={description}
-                                        about={about || ''}
-                                        avatar={avatar || ''}
+                                        about={about}
+                                        avatar={avatar}
                                     />
                                 </div>
                             ) : (
@@ -139,7 +139,7 @@ const Integrations = () => {
                                     type={"small"}
                                     title={title}
                                     description={description}
-                                    logo={logo || ''}
+                                    logo={logo}
                                     isOn={activeSwitches[index]}
                                     switch={<Switch
                                         isOn={activeSwitches[index]}
