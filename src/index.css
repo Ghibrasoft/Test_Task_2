@@ -20,14 +20,14 @@ body {
 
 /* 1st child */
 .card-connector:nth-child(1):after {
-  bottom: -10px;
+  bottom: -11px;
   right: -59px;
   border-top-right-radius: 16px;
   border-top: 2px solid #c4b5fd;
   border-right: 2px solid #c4b5fd;
 }
 .card-connector:nth-child(1):before {
-  bottom: -60px;
+  bottom: -61px;
   right: -116px;
   border-bottom-left-radius: 16px;
   border-bottom: 2px solid #c4b5fd;
@@ -36,14 +36,14 @@ body {
 
 /* 3rd child */
 .card-connector:nth-child(3):after {
-  bottom: -10px;
+  bottom: -11px;
   left: -59px;
   border-top-left-radius: 16px;
   border-top: 2px solid #c4b5fd;
   border-left: 2px solid #c4b5fd;
 }
 .card-connector:nth-child(3):before {
-  bottom: -60px;
+  bottom: -61px;
   left: -116px;
   border-bottom-right-radius: 16px;
   border-bottom: 2px solid #c4b5fd;
@@ -76,14 +76,14 @@ body {
 
 /* 6th child */
 .card-connector:nth-child(6):after {
-  bottom: 40px;
+  bottom: 41px;
   right: -59px;
   border-bottom-right-radius: 16px;
   border-bottom: 2px solid #c4b5fd;
   border-right: 2px solid #c4b5fd;
 }
 .card-connector:nth-child(6):before {
-  bottom: 90px;
+  bottom: 91px;
   right: -116px;
   border-top-left-radius: 16px;
   border-top: 2px solid #c4b5fd;
@@ -92,16 +92,33 @@ body {
 
 /* 7th child */
 .card-connector:nth-child(7):after {
-  bottom: 40px;
+  bottom: 41px;
   left: -59px;
   border-bottom-left-radius: 16px;
   border-bottom: 2px solid #c4b5fd;
   border-left: 2px solid #c4b5fd;
 }
 .card-connector:nth-child(7):before {
-  bottom: 90px;
+  bottom: 91px;
   left: -116px;
   border-top-right-radius: 16px;
   border-top: 2px solid #c4b5fd;
   border-right: 2px solid #c4b5fd;
+}
+
+/* when the switch is on */
+.card-connector.is-on:nth-child(1):after,
+.card-connector.is-on:nth-child(1):before,
+.card-connector.is-on:nth-child(3):after,
+.card-connector.is-on:nth-child(3):before,
+.card-connector.is-on:nth-child(4):after,
+.card-connector.is-on:nth-child(4):before,
+.card-connector.is-on:nth-child(5):after,
+.card-connector.is-on:nth-child(5):before,
+.card-connector.is-on:nth-child(6):after,
+.card-connector.is-on:nth-child(6):before,
+.card-connector.is-on:nth-child(7):after,
+.card-connector.is-on:nth-child(7):before {
+  border-color: rgb(139, 92, 246, 0.9);
+  z-index: 10;
 }

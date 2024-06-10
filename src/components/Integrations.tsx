@@ -7,7 +7,7 @@ import Card from './UI/Card';
 const BUTTONS = [
     "Small Business",
     "Medium Business",
-    "Enterprice"
+    "Enterprise"
 ];
 const CARD_CONTENT = [
     {
@@ -122,10 +122,12 @@ const Integrations = () => {
                     <div className='grid grid-cols-[auto,auto,auto] gap-x-28 gap-y-5 place-items-center w-full'>
                         {CARD_CONTENT.map(({ type, title, description, about, avatar, logo }, index) => (
                             type === 'default' ? (
-                                <div className='row-span-3 col-span-1 self-end'>
+                                <div
+                                    className='row-span-3 col-span-1 self-end'
+                                    key={index}
+                                >
                                     <Card
                                         className='bg-violet-50'
-                                        key={index}
                                         type={"default"}
                                         title={title}
                                         description={description}
@@ -135,7 +137,7 @@ const Integrations = () => {
                                 </div>
                             ) : (
                                 <Card
-                                    className='card-connector self-auto'
+                                    className={`card-connector self-auto ${activeSwitches[index] ? 'is-on' : ''}`}
                                     key={index}
                                     type={"small"}
                                     title={title}
