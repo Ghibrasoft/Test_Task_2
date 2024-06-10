@@ -1,0 +1,18 @@
+:root {
+  /* connector dimensions */
+  --connector-width: 60px;
+  --connector-height: 50px;
+
+  /* connector border styles */
+  --connector-border: 2px;
+  --connector-border-color: #c4b5fd;
+  --connector-border-color-active: rgb(139, 92, 246, 0.9);
+  --connector-border-radius: 16px;
+
+  /* connector position offsets */
+  --connector-offset-small: -11px;
+  --connector-offset-medium: -61px;
+  --connector-offset-large: -119px;
+  --connector-offset-bottom: 41px;
+  --connector-offset-bottom-large: 91px;
+}

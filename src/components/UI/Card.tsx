@@ -25,13 +25,13 @@ const Card: React.FC<CardProps> = (props) => {
     if (props.type === 'default') {
         const { avatar, title, description, about, className } = props;
         return (
-            <div className={`relative flex flex-col items-center gap-3 py-10 w-[380px] h-[268px] text-center ring-2 ring-violet-500/90 rounded-3xl z-10 ${className}`}>
+            <div className={`relative flex flex-col items-center gap-3 py-10 w-[380px] h-[268px] text-center border-2 border-violet-500/90 bg-violet-50 rounded-3xl z-10 ${className}`}>
                 <img
                     alt='avatar'
                     src={avatar}
-                    className='absolute left-1/2 -top-[15%] transform -translate-x-1/2 w-[86px] h-[86px] object-cover rounded-[10px] bg-violet-200'
+                    className='absolute left-1/2 -top-[11%] transform -translate-x-1/2 w-[86px] h-[86px] object-cover rounded-[10px] bg-violet-200'
                 />
-                <div className='flex flex-col items-center gap-4 mt-5 w-[300px] text-center'>
+                <div className='flex flex-col items-center gap-7 mt-7 w-[300px] text-center'>
                     <div className='flex flex-col items-center gap-1'>
                         <h1 className='leading-6 font-bold text-lg'>{title}</h1>
                         <span className='leading-5 text-sm'>{description}</span>
@@ -42,9 +42,9 @@ const Card: React.FC<CardProps> = (props) => {
         )
     } else {
         const { logo, title, description, switch: Switch, isOn, className } = props;
-        const isOnClassName = isOn ? 'ring-2 ring-violet-500/90' : 'ring-gray-200'
+        const isOnClassName = isOn ? 'border border-transparent ring-[1.5px] ring-violet-500/90' : 'border-gray-200'
         return (
-            <div className={`flex items-center justify-between w-[280px] h-20 ring-1 rounded-xl p-5 ${isOnClassName} ${className}`}>
+            <div className={`flex items-center justify-between w-[280px] h-20 border border-1 rounded-xl p-5 ${isOnClassName} ${className}`}>
                 <div className='flex items-center gap-2'>
                     <img
                         alt={`${title}-logo`}

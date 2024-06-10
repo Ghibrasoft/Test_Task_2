@@ -1,3 +1,5 @@
+@import "./variables.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,100 +15,105 @@ body {
 .card-connector::after {
   position: absolute;
   content: "";
-  width: 58px;
-  height: 50px;
+  width: var(--connector-width);
+  height: var(--connector-height);
   border: none;
 }
 
-/* 1st child */
+/* ========== LEFT CARDS ==========*/
+
+/* top  */
 .card-connector:nth-child(1):after {
-  bottom: -11px;
-  right: -59px;
-  border-top-right-radius: 16px;
-  border-top: 2px solid #c4b5fd;
-  border-right: 2px solid #c4b5fd;
+  bottom: var(--connector-offset-small);
+  right: var(--connector-offset-medium);
+  border-top-right-radius: var(--connector-border-radius);
+  border-top: var(--connector-border) solid var(--connector-border-color);
+  border-right: var(--connector-border) solid var(--connector-border-color);
 }
 .card-connector:nth-child(1):before {
-  bottom: -61px;
-  right: -116px;
-  border-bottom-left-radius: 16px;
-  border-bottom: 2px solid #c4b5fd;
-  border-left: 2px solid #c4b5fd;
+  bottom: var(--connector-offset-medium);
+  right: var(--connector-offset-large);
+  border-bottom-left-radius: var(--connector-border-radius);
+  border-bottom: var(--connector-border) solid var(--connector-border-color);
+  border-left: var(--connector-border) solid var(--connector-border-color);
 }
 
-/* 3rd child */
-.card-connector:nth-child(3):after {
-  bottom: -11px;
-  left: -59px;
-  border-top-left-radius: 16px;
-  border-top: 2px solid #c4b5fd;
-  border-left: 2px solid #c4b5fd;
-}
-.card-connector:nth-child(3):before {
-  bottom: -61px;
-  left: -116px;
-  border-bottom-right-radius: 16px;
-  border-bottom: 2px solid #c4b5fd;
-  border-right: 2px solid #c4b5fd;
-}
-
-/* 4th child (straight) */
+/* middle  (straight) */
 .card-connector:nth-child(4):after {
-  bottom: -9px;
-  right: -59px;
-  border-top: 2px solid #c4b5fd;
-}
-.card-connector:nth-child(4):before {
-  top: -9px;
-  right: -115px;
-  border-bottom: 2px solid #c4b5fd;
+  top: var(--connector-offset-small);
+  right: var(--connector-offset-medium);
+  border-bottom: var(--connector-border) solid var(--connector-border-color);
 }
 
-/* 5th child (straight) */
-.card-connector:nth-child(5):after {
-  bottom: -9px;
-  left: -59px;
-  border-top: 2px solid #c4b5fd;
-}
-.card-connector:nth-child(5):before {
-  top: -9px;
-  left: -116px;
-  border-bottom: 2px solid #c4b5fd;
-}
-
-/* 6th child */
+/* bottom left */
 .card-connector:nth-child(6):after {
-  bottom: 41px;
-  right: -59px;
-  border-bottom-right-radius: 16px;
-  border-bottom: 2px solid #c4b5fd;
-  border-right: 2px solid #c4b5fd;
+  bottom: var(--connector-offset-bottom);
+  right: var(--connector-offset-medium);
+  border-bottom-right-radius: var(--connector-border-radius);
+  border-bottom: var(--connector-border) solid var(--connector-border-color);
+  border-right: var(--connector-border) solid var(--connector-border-color);
 }
 .card-connector:nth-child(6):before {
-  bottom: 91px;
-  right: -116px;
-  border-top-left-radius: 16px;
-  border-top: 2px solid #c4b5fd;
-  border-left: 2px solid #c4b5fd;
+  bottom: var(--connector-offset-bottom-large);
+  right: var(--connector-offset-large);
+  border-top-left-radius: var(--connector-border-radius);
+  border-top: var(--connector-border) solid var(--connector-border-color);
+  border-left: var(--connector-border) solid var(--connector-border-color);
 }
 
-/* 7th child */
+/* ========== RIGHT CARDS ========== */
+
+/* top */
+.card-connector:nth-child(3):after {
+  bottom: var(--connector-offset-small);
+  left: var(--connector-offset-medium);
+  border-top-left-radius: var(--connector-border-radius);
+  border-top: var(--connector-border) solid var(--connector-border-color);
+  border-left: var(--connector-border) solid var(--connector-border-color);
+}
+.card-connector:nth-child(3):before {
+  bottom: var(--connector-offset-medium);
+  left: var(--connector-offset-large);
+  border-bottom-right-radius: var(--connector-border-radius);
+  border-bottom: var(--connector-border) solid var(--connector-border-color);
+  border-right: var(--connector-border) solid var(--connector-border-color);
+}
+
+.card-connector:nth-child(4):before {
+  top: var(--connector-offset-small);
+  right: var(--connector-offset-large);
+  border-bottom: var(--connector-border) solid var(--connector-border-color);
+}
+
+/* middle (straight) */
+.card-connector:nth-child(5):after {
+  top: var(--connector-offset-small);
+  left: var(--connector-offset-medium);
+  border-bottom: var(--connector-border) solid var(--connector-border-color);
+}
+.card-connector:nth-child(5):before {
+  top: var(--connector-offset-small);
+  left: var(--connector-offset-large);
+  border-bottom: var(--connector-border) solid var(--connector-border-color);
+}
+
+/* bottom */
 .card-connector:nth-child(7):after {
-  bottom: 41px;
-  left: -59px;
-  border-bottom-left-radius: 16px;
-  border-bottom: 2px solid #c4b5fd;
-  border-left: 2px solid #c4b5fd;
+  bottom: var(--connector-offset-bottom);
+  left: var(--connector-offset-medium);
+  border-bottom-left-radius: var(--connector-border-radius);
+  border-bottom: var(--connector-border) solid var(--connector-border-color);
+  border-left: var(--connector-border) solid var(--connector-border-color);
 }
 .card-connector:nth-child(7):before {
-  bottom: 91px;
-  left: -116px;
-  border-top-right-radius: 16px;
-  border-top: 2px solid #c4b5fd;
-  border-right: 2px solid #c4b5fd;
+  bottom: var(--connector-offset-bottom-large);
+  left: var(--connector-offset-large);
+  border-top-right-radius: var(--connector-border-radius);
+  border-top: var(--connector-border) solid var(--connector-border-color);
+  border-right: var(--connector-border) solid var(--connector-border-color);
 }
 
-/* when the switch is on */
+/* WHEN THE SWITCH IS ON */
 .card-connector.is-on:nth-child(1):after,
 .card-connector.is-on:nth-child(1):before,
 .card-connector.is-on:nth-child(3):after,
@@ -119,6 +126,6 @@ body {
 .card-connector.is-on:nth-child(6):before,
 .card-connector.is-on:nth-child(7):after,
 .card-connector.is-on:nth-child(7):before {
-  border-color: rgb(139, 92, 246, 0.9);
+  border-color: var(--connector-border-color-active);
   z-index: 10;
 }

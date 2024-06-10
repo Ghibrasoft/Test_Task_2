@@ -127,7 +127,6 @@ const Integrations = () => {
                                     key={index}
                                 >
                                     <Card
-                                        className='bg-violet-50'
                                         type={"default"}
                                         title={title}
                                         description={description}
