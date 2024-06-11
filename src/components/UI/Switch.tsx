@@ -22,7 +22,7 @@ const Switch: React.FC<ISwitchProps> = ({
             onClick={handleClick}
         >
             <span
-                className={`block w-[8px] h-[8px] m-1 transform -translate-y-[1.3px] rounded-full transition-transform duration-150 ease-in
+                className={`block w-[8px] h-[8px] m-1 transform -translate-y-[1.8px] sm:-translate-y-[1.2px] rounded-full transition-transform duration-150 ease-in
         ${isOn ? 'translate-x-2 bg-light-frost-pale' : '-translate-x-[1px] bg-gray-400'}`}
             ></span>
         </div>
