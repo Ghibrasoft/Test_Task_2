@@ -11,8 +11,8 @@
 
   /* connector position offsets */
   --connector-offset-small: -11px;
-  --connector-offset-medium: -61px;
-  --connector-offset-large: -119px;
+  --connector-offset-medium: -60px;
+  --connector-offset-large: -118.5px;
   --connector-offset-bottom: 41px;
   --connector-offset-bottom-large: 91px;
 }

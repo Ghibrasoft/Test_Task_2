@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import Card from './UI/Card';
 import Slider from './UI/Slider';
@@ -18,23 +18,33 @@ const Integrations = () => {
     const [activeBtn, setActiveBtn] = useState("Small Business");
     const [switchStates, setSwitchStates] = useState<SwitchStates>(getInitialSwitchStates(isMobile));
 
+    // toggle switch
     const handleToggle = (index: number) => {
-        setSwitchStates(prevStates => {
-            const newStates = {
-                ...prevStates,
-                [activeBtn]: [...prevStates[activeBtn]] // array copy for active btn
-            };
-            newStates[activeBtn][index] = !newStates[activeBtn][index];
-            return newStates;
-        });
+        setSwitchStates(prevStates => ({
+            ...prevStates,
+            [activeBtn]: prevStates[activeBtn].map((state, ind) => index === ind ? !state : state)
+        }))
     };
 
+    // update switch state when active btn changes
     useEffect(() => {
         setSwitchStates(prevStates => ({
             ...prevStates,
             [activeBtn]: prevStates[activeBtn]
         }));
     }, [activeBtn]);
+
+    // tab buttons
+    const renderButtons = useMemo(() => BUTTONS.map((title, index) => (
+        <Button
+            key={index}
+            type={isMobile ? "ghost" : "default"}
+            active={title === activeBtn}
+            onClick={() => setActiveBtn(title)}
+        >
+            {title}
+        </Button>
+    )), [activeBtn, isMobile]);
 
     return (
         <div className='h-screen w-full sm:w-[1180px] mx-auto'>
@@ -53,16 +63,7 @@ const Integrations = () => {
                 <div className={`flex flex-col items-center gap-20`}>
                     {/* buttons */}
                     <div className={`flex justify-center gap-0 sm:gap-2 border-b-[1px] w-full sm:w-fit sm:border-none`}>
-                        {BUTTONS.map((title, index) => (
-                            <Button
-                                key={index}
-                                type={isMobile ? "ghost" : "default"}
-                                active={title === activeBtn}
-                                onClick={() => setActiveBtn(title)}
-                            >
-                                {title}
-                            </Button>
-                        ))}
+                        {renderButtons}
                     </div>
 
                     {/* cards */}
@@ -115,7 +116,7 @@ const Integrations = () => {
                                     </div>
                                 ) : (
                                     <Card
-                                        className={`card-connector self-auto ${switchStates[activeBtn][index] ? 'is-on' : ''}`}
+                                        className={`card-connector self-auto ${switchStates[activeBtn][index] ? 'is-on z-20' : ''}`}
                                         key={index}
                                         type={"small"}
                                         title={title}
@@ -129,8 +130,8 @@ const Integrations = () => {
                                     />
                                 )
                             ))}
-                        </div>}
-
+                        </div>
+                    }
                 </div>
             </div>
         </div>

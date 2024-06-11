@@ -128,5 +128,4 @@ body {
 .card-connector.is-on:nth-child(7):after,
 .card-connector.is-on:nth-child(7):before {
   border-color: var(--connector-border-color-active);
-  z-index: 10;
 }

@@ -27,7 +27,7 @@ const Card: React.FC<CardProps> = (props) => {
         const { logo, title, description, switch: Switch, isOn, className } = props;
         const isOnClassName = isOn ? 'border border-transparent ring-[1.5px] ring-vio-soft' : 'border-frost-soft'
         return (
-            <div className={`flex items-center justify-between w-[323px] sm:w-[280px] h-20 border border-1 rounded-xl p-5 ${isOnClassName} ${className}`}>
+            <div className={`flex items-center justify-between w-[323px] sm:w-[280px] h-20 border border-1 rounded-xl p-5 bg-white z-10 ${isOnClassName} ${className}`}>
                 <div className='flex items-center gap-2'>
                     <img
                         alt={`${title}-logo`}
