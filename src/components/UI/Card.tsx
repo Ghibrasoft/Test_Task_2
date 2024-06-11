@@ -8,7 +8,7 @@ const Card: React.FC<CardProps> = (props) => {
     if (props.type === 'default') {
         const { avatar, title, description, about, className } = props;
         return (
-            <div className={`relative flex flex-col items-center gap-3 py-10 w-[323px] h-[240px] sm:w-[380px] sm:h-[268px] text-center border-2 border-vio-soft bg-violet-50 rounded-3xl z-10 ${className}`}>
+            <div className={`relative flex flex-col items-center gap-3 py-10 w-[323px] h-[240px] sm:w-[380px] sm:h-[268px] text-center border-2 border-vio-soft bg-violet-50 rounded-3xl z-20 ${className}`}>
                 <img
                     alt='avatar'
                     src={avatar}
@@ -25,7 +25,7 @@ const Card: React.FC<CardProps> = (props) => {
         )
     } else {
         const { logo, title, description, switch: Switch, isOn, className } = props;
-        const isOnClassName = isOn ? 'border border-transparent ring-[1.5px] ring-vio-soft' : 'border-frost-soft'
+        const isOnClassName = isOn ? 'border border-transparent ring-inset ring-[1.5px] ring-vio-soft' : 'border-frost-soft'
         return (
             <div className={`flex items-center justify-between w-[323px] sm:w-[280px] h-20 border border-1 rounded-xl p-5 bg-white z-10 ${isOnClassName} ${className}`}>
                 <div className='flex items-center gap-2'>
