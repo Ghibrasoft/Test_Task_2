@@ -4,12 +4,25 @@ import Switch from './UI/Switch';
 import Card from './UI/Card';
 
 
+
+interface CardContent {
+    type: string;
+    title: string;
+    description: string;
+    about?: string;
+    avatar?: string;
+    logo?: string;
+}
+
+interface SwitchStates {
+    [key: string]: boolean[];
+}
 const BUTTONS = [
     "Small Business",
     "Medium Business",
     "Enterprise"
 ];
-const CARD_CONTENT = [
+const CARD_CONTENT: CardContent[] = [
     {
         // key: 1,
         type: "small",
@@ -63,28 +76,28 @@ const CARD_CONTENT = [
 ];
 const Integrations = () => {
     const [activeBtn, setActiveBtn] = useState("Small Business");
-    const [activeSwitches, setActiveSwitches] = useState<boolean[]>([]);
+    const [switchStates, setSwitchStates] = useState<SwitchStates>({
+        "Small Business": CARD_CONTENT.map(({ title }) => title === 'Zenefits'),
+        "Medium Business": CARD_CONTENT.map(({ title }) => title === 'Sapling' || title === 'Workday'),
+        "Enterprise": CARD_CONTENT.map(() => true)
+    });
 
     const handleToggle = (index: number) => {
-        setActiveSwitches(prevState => {
-            const newState = [...prevState];
-            newState[index] = !newState[index];
-            return newState;
-        })
+        setSwitchStates(prevStates => {
+            const newStates = {
+                ...prevStates,
+                [activeBtn]: [...prevStates[activeBtn]] // array copy for active btn
+            };
+            newStates[activeBtn][index] = !newStates[activeBtn][index];
+            return newStates;
+        });
     };
 
     useEffect(() => {
-        const initialSwitchState = CARD_CONTENT.map(({ title }) => {
-            if (activeBtn === 'Small Business') {
-                return title === 'Zenefits';
-            } else if (activeBtn === 'Medium Business') {
-                return title === 'Sapling' || title === 'Workday';
-            } else {
-                return true;
-            }
-        })
-
-        setActiveSwitches(initialSwitchState);
+        setSwitchStates(prevStates => ({
+            ...prevStates,
+            [activeBtn]: prevStates[activeBtn]
+        }));
     }, [activeBtn]);
 
     return (
@@ -134,15 +147,15 @@ const Integrations = () => {
                                 </div>
                             ) : (
                                 <Card
-                                    className={`card-connector self-auto ${activeSwitches[index] ? 'is-on' : ''}`}
+                                    className={`card-connector self-auto ${switchStates[activeBtn][index] ? 'is-on' : ''}`}
                                     key={index}
                                     type={"small"}
                                     title={title}
                                     description={description}
                                     logo={logo}
-                                    isOn={activeSwitches[index]}
+                                    isOn={switchStates[activeBtn][index]}
                                     switch={<Switch
-                                        isOn={activeSwitches[index]}
+                                        isOn={switchStates[activeBtn][index]}
                                         handleToggle={() => handleToggle(index)}
                                     />}
                                 />
