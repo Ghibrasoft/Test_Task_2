@@ -56,7 +56,9 @@ const CARD_CONTENT: ICardContent[] = [
         logo: "https://via.placeholder.com/48"
     }
 ];
+const WINDOW_WIDTH = window.innerWidth;
 const Integrations = () => {
+    const isMobile = WINDOW_WIDTH < 640;
     const [activeBtn, setActiveBtn] = useState("Small Business");
     const [switchStates, setSwitchStates] = useState<SwitchStates>({
         "Small Business": CARD_CONTENT.map(({ title }) => title === 'Zenefits'),
@@ -96,9 +98,9 @@ const Integrations = () => {
                 </div>
 
                 {/* cards & buttons */}
-                <div className='flex flex-col items-center gap-20'>
+                <div className={`flex flex-col items-center gap-20 border-b-[1px] border-b-frost-soft sm:border-none`}>
                     {/* buttons */}
-                    <div className='flex gap-2'>
+                    <div className={`flex gap-0 sm:gap-2`}>
                         {BUTTONS.map((title, index) => (
                             <Button
                                 key={index}
@@ -112,38 +114,49 @@ const Integrations = () => {
                     </div>
 
                     {/* cards */}
-                    {/* <div className='grid grid-cols-[auto,auto,auto] gap-x-28 gap-y-5 place-items-center w-full'>
-                        {CARD_CONTENT.map(({ type, title, description, about = '', avatar = '', logo = '' }, index) => (
-                            type === 'default' ? (
-                                <div
-                                    className='row-span-3 col-span-1 self-end'
-                                    key={index}
-                                >
+
+                    {isMobile ? (
+                        <Card
+                            type='default'
+                            title='Lauren Robson'
+                            description='HM Director'
+                            about='“I want to lower PTO liability and keep my employees happy. I want to lower PTO liability.”'
+                            avatar='https://via.placeholder.com/86'
+                        />
+                    ) :
+                        <div className='grid grid-cols-[auto,auto,auto] gap-x-28 gap-y-5 place-items-center w-full'>
+                            {CARD_CONTENT.map(({ type, title, description, about = '', avatar = '', logo = '' }, index) => (
+                                type === 'default' ? (
+                                    <div
+                                        className='row-span-3 col-span-1 self-end'
+                                        key={index}
+                                    >
+                                        <Card
+                                            type={"default"}
+                                            title={title}
+                                            description={description}
+                                            about={about}
+                                            avatar={avatar}
+                                        />
+                                    </div>
+                                ) : (
                                     <Card
-                                        type={"default"}
+                                        className={`card-connector self-auto ${switchStates[activeBtn][index] ? 'is-on' : ''}`}
+                                        key={index}
+                                        type={"small"}
                                         title={title}
                                         description={description}
-                                        about={about}
-                                        avatar={avatar}
-                                    />
-                                </div>
-                            ) : (
-                                <Card
-                                    className={`card-connector self-auto ${switchStates[activeBtn][index] ? 'is-on' : ''}`}
-                                    key={index}
-                                    type={"small"}
-                                    title={title}
-                                    description={description}
-                                    logo={logo}
-                                    isOn={switchStates[activeBtn][index]}
-                                    switch={<Switch
+                                        logo={logo}
                                         isOn={switchStates[activeBtn][index]}
-                                        handleToggle={() => handleToggle(index)}
-                                    />}
-                                />
-                            )
-                        ))}
-                    </div> */}
+                                        switch={<Switch
+                                            isOn={switchStates[activeBtn][index]}
+                                            handleToggle={() => handleToggle(index)}
+                                        />}
+                                    />
+                                )
+                            ))}
+                        </div>}
+
                 </div>
             </div>
         </div>

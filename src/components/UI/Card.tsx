@@ -7,16 +7,16 @@ const Card: React.FC<CardProps> = (props) => {
     if (props.type === 'default') {
         const { avatar, title, description, about, className } = props;
         return (
-            <div className={`relative flex flex-col items-center gap-3 py-10 w-[380px] h-[268px] text-center border-2 border-vio-soft bg-violet-50 rounded-3xl z-10 ${className}`}>
+            <div className={`relative flex flex-col items-center gap-3 py-10 w-[323px] h-[240px] sm:w-[380px] sm:h-[268px] text-center border-2 border-vio-soft bg-violet-50 rounded-3xl z-10 ${className}`}>
                 <img
                     alt='avatar'
                     src={avatar}
-                    className='absolute left-1/2 -top-[11%] transform -translate-x-1/2 w-[86px] h-[86px] object-cover rounded-[10px] bg-violet-200'
+                    className='absolute left-1/2 -top-[43px] sm:-top-[32px] transform -translate-x-1/2 w-[86px] h-[86px] object-cover rounded-[10px] bg-violet-200'
                 />
                 <div className='flex flex-col items-center gap-7 mt-7 w-[300px] text-center'>
                     <div className='flex flex-col items-center gap-1'>
                         <h1 className='leading-6 font-bold text-lg text-vio-deep'>{title}</h1>
-                        <span className='leading-5 text-sm'>{description}</span>
+                        <span className='leading-6 sm:leading-5 text-sm'>{description}</span>
                     </div>
                     <span className='leading-6 text-base'>{about}</span>
                 </div>
