@@ -1,12 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { ISliderProps } from '../../interfaces/interfaces';
 
 
-interface ISliderProps {
-    data: any;
-}
-const Slider: React.FC<ISliderProps> = ({ data }) => {
+const Slider: React.FC<ISliderProps> = ({ dataLength, children }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
-    const totalSlides = Math.ceil(data.length / 3);
+    const totalSlides = Math.ceil(dataLength / 3);
 
     const Next = () => {
         setCurrentSlide(currentSlide === totalSlides - 1 ? 0 : currentSlide + 1);
@@ -16,6 +14,11 @@ const Slider: React.FC<ISliderProps> = ({ data }) => {
         setCurrentSlide(currentSlide === 0 ? totalSlides - 1 : currentSlide - 1);
     }
 
+    const renderSlides = () => {
+        const startIndex = currentSlide * 3;
+        const endIndex = startIndex + 3;
+        return React.Children.toArray(children).slice(startIndex, endIndex);
+    }
 
     return (
         <div className="relative">
@@ -29,19 +32,11 @@ const Slider: React.FC<ISliderProps> = ({ data }) => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
             </div>
-            <div className="flex justify-center items-center">
-                <div className="grid grid-cols-3 gap-4">
-                    {data.slice(currentSlide, currentSlide + 3).map((card: any, index: number) => (
-                        <div key={index} className="bg-white rounded-lg shadow-lg p-4">
-                            <img src={card.logo} alt={card.title} className="w-12 h-12 mx-auto mb-4" />
-                            <h2 className="text-lg font-semibold">{card.title}</h2>
-                            <p className="text-gray-600">{card.description}</p>
-                        </div>
-                    ))}
-                </div>
+            <div className="flex flex-col gap-3">
+                {renderSlides()}
             </div>
         </div>
-    )
+    );
 }
 
-export default Slider
+export default Slider;

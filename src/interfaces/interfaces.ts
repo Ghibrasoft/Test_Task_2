@@ -47,3 +47,8 @@ interface ISmallCardProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export type CardProps = IDefaultCardProps | ISmallCardProps;
+
+export interface ISliderProps {
+  dataLength: number;
+  children: React.ReactNode;
+}

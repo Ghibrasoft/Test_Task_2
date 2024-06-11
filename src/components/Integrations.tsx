@@ -3,6 +3,7 @@ import Button from './UI/Button'
 import Switch from './UI/Switch';
 import Card from './UI/Card';
 import { ICardContent, SwitchStates } from '../interfaces/interfaces';
+import Slider from './UI/Slider';
 
 
 
@@ -57,8 +58,9 @@ const CARD_CONTENT: ICardContent[] = [
     }
 ];
 const WINDOW_WIDTH = window.innerWidth;
+const isMobile = WINDOW_WIDTH < 640;
+const SLIDER_CARDS = isMobile ? CARD_CONTENT.filter(({ type }) => type === 'small') : [];
 const Integrations = () => {
-    const isMobile = WINDOW_WIDTH < 640;
     const [activeBtn, setActiveBtn] = useState("Small Business");
     const [switchStates, setSwitchStates] = useState<SwitchStates>({
         "Small Business": CARD_CONTENT.map(({ title }) => title === 'Zenefits'),
@@ -100,11 +102,11 @@ const Integrations = () => {
                 {/* cards & buttons */}
                 <div className={`flex flex-col items-center gap-20 border-b-[1px] border-b-frost-soft sm:border-none`}>
                     {/* buttons */}
-                    <div className={`flex gap-0 sm:gap-2`}>
+                    <div className={`flex justify-center gap-0 sm:gap-2 border-b-[1px] w-full sm:w-fit sm:border-none`}>
                         {BUTTONS.map((title, index) => (
                             <Button
                                 key={index}
-                                type="ghost"
+                                type={isMobile ? "ghost" : "default"}
                                 active={title === activeBtn}
                                 onClick={() => setActiveBtn(title)}
                             >
@@ -116,13 +118,35 @@ const Integrations = () => {
                     {/* cards */}
 
                     {isMobile ? (
-                        <Card
-                            type='default'
-                            title='Lauren Robson'
-                            description='HM Director'
-                            about='“I want to lower PTO liability and keep my employees happy. I want to lower PTO liability.”'
-                            avatar='https://via.placeholder.com/86'
-                        />
+                        <>
+                            <Card
+                                type='default'
+                                title='Lauren Robson'
+                                description='HM Director'
+                                about='“I want to lower PTO liability and keep my employees happy. I want to lower PTO liability.”'
+                                avatar='https://via.placeholder.com/86'
+                            />
+
+                            <Slider
+                                dataLength={SLIDER_CARDS.length}
+                            >
+                                {SLIDER_CARDS.map(({ title, description, logo = '' }, index) => (
+                                    <Card
+                                        key={index}
+                                        type='small'
+                                        title={title}
+                                        description={description}
+                                        logo={logo}
+                                        isOn={switchStates[activeBtn][index]}
+                                        switch={<Switch
+                                            isOn={switchStates[activeBtn][index]}
+                                            handleToggle={() => handleToggle(index)}
+                                        />}
+                                    />
+                                ))}
+                            </Slider>
+                        </>
+
                     ) :
                         <div className='grid grid-cols-[auto,auto,auto] gap-x-28 gap-y-5 place-items-center w-full'>
                             {CARD_CONTENT.map(({ type, title, description, about = '', avatar = '', logo = '' }, index) => (
