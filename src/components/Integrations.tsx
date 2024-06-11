@@ -83,13 +83,13 @@ const Integrations = () => {
     }, [activeBtn]);
 
     return (
-        <div className='h-screen w-[1180px] mx-auto'>
+        <div className='h-screen w-full sm:w-[1180px] mx-auto'>
             {/* content */}
             <div className='flex flex-col gap-10 h-full'>
                 {/* title */}
-                <div className='flex flex-col gap-8 w-[779px] mx-auto text-center'>
-                    <h1 className='text-6xl font-bold leading-[83px] text-vio-deep'>Easy Turn-Key Integration</h1>
-                    <p className='text-[19px] text-gray-950/90 leading-7'>
+                <div className='flex flex-col gap-8 w-[323px] sm:w-[779px] mx-auto text-center'>
+                    <h1 className='text-4xl sm:text-6xl font-bold leading-[43px] sm:leading-[83px] text-vio-deep'>Easy Turn-Key Integration</h1>
+                    <p className='text-base sm:text-[19px] text-gray-950/90 leading-6 sm:leading-7'>
                         Increase job satisfaction, improve engagement, decrease burnout
                         and lower payroll liability by reimagining what employees can do with their PTO.
                     </p>
@@ -102,7 +102,7 @@ const Integrations = () => {
                         {BUTTONS.map((title, index) => (
                             <Button
                                 key={index}
-                                type="default"
+                                type="ghost"
                                 active={title === activeBtn}
                                 onClick={() => setActiveBtn(title)}
                             >
@@ -112,7 +112,7 @@ const Integrations = () => {
                     </div>
 
                     {/* cards */}
-                    <div className='grid grid-cols-[auto,auto,auto] gap-x-28 gap-y-5 place-items-center w-full'>
+                    {/* <div className='grid grid-cols-[auto,auto,auto] gap-x-28 gap-y-5 place-items-center w-full'>
                         {CARD_CONTENT.map(({ type, title, description, about = '', avatar = '', logo = '' }, index) => (
                             type === 'default' ? (
                                 <div
@@ -143,7 +143,7 @@ const Integrations = () => {
                                 />
                             )
                         ))}
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
