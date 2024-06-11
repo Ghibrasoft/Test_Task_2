@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { ISwitchProps } from '../../interfaces/interfaces';
+
 
 const Switch: React.FC<ISwitchProps> = ({
     isOn,

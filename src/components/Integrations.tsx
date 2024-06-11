@@ -1,10 +1,13 @@
-import { useEffect, useState } from 'react'
-import Button from './UI/Button'
-import Switch from './UI/Switch';
+import { useEffect, useState } from 'react';
+
 import Card from './UI/Card';
-import { SwitchStates } from '../interfaces/interfaces';
 import Slider from './UI/Slider';
+import Button from './UI/Button';
+import Switch from './UI/Switch';
+
+import { SwitchStates } from '../interfaces/interfaces';
 import { BUTTONS, CARD_CONTENT } from '../assets/data/data';
+import { getInitialSwitchStates } from '../helpers/getInitialSwitchStates';
 
 
 
@@ -13,11 +16,7 @@ const isMobile = WINDOW_WIDTH <= 640;
 const SLIDER_CARDS = isMobile ? CARD_CONTENT.filter(({ type }) => type === 'small') : [];
 const Integrations = () => {
     const [activeBtn, setActiveBtn] = useState("Small Business");
-    const [switchStates, setSwitchStates] = useState<SwitchStates>({
-        "Small Business": CARD_CONTENT.map(({ title }) => title === 'Zenefits'),
-        "Medium Business": CARD_CONTENT.map(({ title }) => title === 'Sapling' || title === 'Workday'),
-        "Enterprise": CARD_CONTENT.map(() => true)
-    });
+    const [switchStates, setSwitchStates] = useState<SwitchStates>(getInitialSwitchStates(isMobile));
 
     const handleToggle = (index: number) => {
         setSwitchStates(prevStates => {

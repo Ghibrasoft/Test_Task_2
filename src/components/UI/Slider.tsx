@@ -1,5 +1,7 @@
 import React, { useState, useRef } from 'react';
+
 import { ISliderProps } from '../../interfaces/interfaces';
+
 
 const Slider: React.FC<ISliderProps> = ({ dataLength, children }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
