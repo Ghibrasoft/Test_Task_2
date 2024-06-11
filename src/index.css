@@ -8,6 +8,7 @@ body {
   font-family: "Circular Std", sans-serif;
 }
 
+/* ==================== CARD CONNECTORS ==================== */
 .card-connector {
   position: relative;
 }

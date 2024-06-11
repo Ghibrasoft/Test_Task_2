@@ -1,10 +1,6 @@
 import React from 'react';
+import { ISwitchProps } from '../../interfaces/interfaces';
 
-interface ISwitchProps {
-    isOn: boolean;
-    disabled?: boolean;
-    handleToggle: () => void;
-}
 const Switch: React.FC<ISwitchProps> = ({
     isOn,
     disabled = false,

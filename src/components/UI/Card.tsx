@@ -1,25 +1,7 @@
 import React from 'react'
+import { CardProps } from '../../interfaces/interfaces';
 
 
-interface IDefaultCardProps extends React.HTMLAttributes<HTMLDivElement> {
-    type: "default";
-    avatar: string;
-    title: string;
-    description: string;
-    about: string;
-    className?: string;
-}
-interface ISmallCardProps extends React.HTMLAttributes<HTMLDivElement> {
-    type: "small";
-    logo: string;
-    title: string;
-    description: string;
-    switch: React.ReactNode;
-    isOn: boolean;
-    className?: string;
-}
-
-type CardProps = IDefaultCardProps | ISmallCardProps;
 
 const Card: React.FC<CardProps> = (props) => {
     if (props.type === 'default') {

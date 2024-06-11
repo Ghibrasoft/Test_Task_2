@@ -2,36 +2,23 @@ import { useEffect, useState } from 'react'
 import Button from './UI/Button'
 import Switch from './UI/Switch';
 import Card from './UI/Card';
+import { ICardContent, SwitchStates } from '../interfaces/interfaces';
 
 
 
-interface CardContent {
-    type: string;
-    title: string;
-    description: string;
-    about?: string;
-    avatar?: string;
-    logo?: string;
-}
-
-interface SwitchStates {
-    [key: string]: boolean[];
-}
 const BUTTONS = [
     "Small Business",
     "Medium Business",
     "Enterprise"
 ];
-const CARD_CONTENT: CardContent[] = [
+const CARD_CONTENT: ICardContent[] = [
     {
-        // key: 1,
         type: "small",
         title: "Sapling",
         description: "HR Management",
         logo: "https://via.placeholder.com/48"
     },
     {
-        // key: 4,
         type: "default",
         title: "Lauren Robson",
         description: "HM Director",
@@ -39,35 +26,30 @@ const CARD_CONTENT: CardContent[] = [
         avatar: "https://via.placeholder.com/86"
     },
     {
-        // key: 2,
         type: "small",
         title: "Rippling",
         description: "Salary Management",
         logo: "https://via.placeholder.com/48"
     },
     {
-        // key: 3,
         type: "small",
         title: "Workday",
         description: "HR Management",
         logo: "https://via.placeholder.com/48"
     },
     {
-        // key: 5,
         type: "small",
         title: "Expensify",
         description: "HR Management",
         logo: "https://via.placeholder.com/48"
     },
     {
-        // key: 6,
         type: "small",
         title: "Xero",
         description: "Employers Base",
         logo: "https://via.placeholder.com/48"
     },
     {
-        // key: 7,
         type: "small",
         title: "Zenefits",
         description: "HR Management",
