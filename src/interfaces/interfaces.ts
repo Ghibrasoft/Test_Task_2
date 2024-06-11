@@ -48,6 +48,12 @@ interface ISmallCardProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export type CardProps = IDefaultCardProps | ISmallCardProps;
 
+export interface IGridCardsProps {
+  activeBtn: any;
+  switchStates: any[];
+  handleToggle: (index: number) => void;
+}
+
 export interface ISliderProps {
   dataLength: number;
   children: React.ReactNode;

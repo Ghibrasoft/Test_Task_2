@@ -1,37 +1,54 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { ISliderProps } from '../../interfaces/interfaces';
-
 
 const Slider: React.FC<ISliderProps> = ({ dataLength, children }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const totalSlides = Math.ceil(dataLength / 3);
+    const startXRef = useRef(0);
+    const moveXRef = useRef(0);
+
+    const handleTouchStart = (e: React.TouchEvent) => {
+        const touch = e.touches[0];
+        startXRef.current = touch.clientX;
+    };
+
+    const handleTouchMove = (e: React.TouchEvent) => {
+        const touch = e.touches[0];
+        moveXRef.current = touch.clientX - startXRef.current;
+    };
+
+    const handleTouchEnd = () => {
+        if (Math.abs(moveXRef.current) > 50) {
+            if (moveXRef.current > 0) {
+                Prev();
+            } else {
+                Next();
+            }
+        }
+        moveXRef.current = 0;
+    };
 
     const Next = () => {
         setCurrentSlide(currentSlide === totalSlides - 1 ? 0 : currentSlide + 1);
-    }
+    };
 
     const Prev = () => {
         setCurrentSlide(currentSlide === 0 ? totalSlides - 1 : currentSlide - 1);
-    }
+    };
 
     const renderSlides = () => {
         const startIndex = currentSlide * 3;
         const endIndex = startIndex + 3;
         return React.Children.toArray(children).slice(startIndex, endIndex);
-    }
+    };
 
     return (
-        <div className="relative">
-            <div className="absolute inset-y-0 left-0 flex items-center justify-center w-12 cursor-pointer text-gray-500 hover:text-gray-900" onClick={Prev}>
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-            </div>
-            <div className="absolute inset-y-0 right-0 flex items-center justify-center w-12 cursor-pointer text-gray-500 hover:text-gray-900" onClick={Next}>
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-            </div>
+        <div
+            className="relative"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+        >
             <div className="flex flex-col gap-3">
                 {renderSlides()}
             </div>

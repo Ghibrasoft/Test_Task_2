@@ -2,63 +2,14 @@ import { useEffect, useState } from 'react'
 import Button from './UI/Button'
 import Switch from './UI/Switch';
 import Card from './UI/Card';
-import { ICardContent, SwitchStates } from '../interfaces/interfaces';
+import { SwitchStates } from '../interfaces/interfaces';
 import Slider from './UI/Slider';
+import { BUTTONS, CARD_CONTENT } from '../assets/data/data';
 
 
 
-const BUTTONS = [
-    "Small Business",
-    "Medium Business",
-    "Enterprise"
-];
-const CARD_CONTENT: ICardContent[] = [
-    {
-        type: "small",
-        title: "Sapling",
-        description: "HR Management",
-        logo: "https://via.placeholder.com/48"
-    },
-    {
-        type: "default",
-        title: "Lauren Robson",
-        description: "HM Director",
-        about: "“I want to lower PTO liability and keep my employees happy. I want to lower PTO liability.”",
-        avatar: "https://via.placeholder.com/86"
-    },
-    {
-        type: "small",
-        title: "Rippling",
-        description: "Salary Management",
-        logo: "https://via.placeholder.com/48"
-    },
-    {
-        type: "small",
-        title: "Workday",
-        description: "HR Management",
-        logo: "https://via.placeholder.com/48"
-    },
-    {
-        type: "small",
-        title: "Expensify",
-        description: "HR Management",
-        logo: "https://via.placeholder.com/48"
-    },
-    {
-        type: "small",
-        title: "Xero",
-        description: "Employers Base",
-        logo: "https://via.placeholder.com/48"
-    },
-    {
-        type: "small",
-        title: "Zenefits",
-        description: "HR Management",
-        logo: "https://via.placeholder.com/48"
-    }
-];
 const WINDOW_WIDTH = window.innerWidth;
-const isMobile = WINDOW_WIDTH < 640;
+const isMobile = WINDOW_WIDTH <= 640;
 const SLIDER_CARDS = isMobile ? CARD_CONTENT.filter(({ type }) => type === 'small') : [];
 const Integrations = () => {
     const [activeBtn, setActiveBtn] = useState("Small Business");
@@ -100,7 +51,7 @@ const Integrations = () => {
                 </div>
 
                 {/* cards & buttons */}
-                <div className={`flex flex-col items-center gap-20 border-b-[1px] border-b-frost-soft sm:border-none`}>
+                <div className={`flex flex-col items-center gap-20`}>
                     {/* buttons */}
                     <div className={`flex justify-center gap-0 sm:gap-2 border-b-[1px] w-full sm:w-fit sm:border-none`}>
                         {BUTTONS.map((title, index) => (
@@ -118,13 +69,13 @@ const Integrations = () => {
                     {/* cards */}
 
                     {isMobile ? (
-                        <>
+                        <div className='flex flex-col gap-5'>
                             <Card
                                 type='default'
                                 title='Lauren Robson'
                                 description='HM Director'
                                 about='“I want to lower PTO liability and keep my employees happy. I want to lower PTO liability.”'
-                                avatar='https://via.placeholder.com/86'
+                                avatar='./images/hr_director.png'
                             />
 
                             <Slider
@@ -145,7 +96,7 @@ const Integrations = () => {
                                     />
                                 ))}
                             </Slider>
-                        </>
+                        </div>
 
                     ) :
                         <div className='grid grid-cols-[auto,auto,auto] gap-x-28 gap-y-5 place-items-center w-full'>

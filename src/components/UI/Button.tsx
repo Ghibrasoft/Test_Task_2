@@ -23,7 +23,7 @@ const Button: React.FC<IButtonProps> = ({
 
     return (
         <button
-            className={`${typeClassName} ${className} flex items-center justify-center h-[38px] p-[15px] text-xs font-bold rounded-xl transition-all duration-100 ease-in`}
+            className={`${typeClassName} ${className} flex items-center justify-center h-[38px] p-[15px] text-xs font-bold rounded-none sm:rounded-xl transition-all duration-100 ease-in`}
             onClick={onClick}
             disabled={disabled}
             role={role}
