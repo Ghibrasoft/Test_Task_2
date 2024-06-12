@@ -71,3 +71,9 @@ This task involves the implementation of a single React component.
     - index.html: HTML template.
     - main.css: Main CSS file.
     - variables.css: CSS variables file.
+
+  ### How to lunch the project
+        git clone https://github.com/Ghibrasoft/Test_Task_2.git
+        cd Test_Task_2
+        npm install
+        npm run dev
