@@ -1,30 +1,73 @@
-# React + TypeScript + Vite
+# React Vite App (Test_Task_#2)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Utilized TypeScript and Tailwind CSS
 
-Currently, two official plugins are available:
+### Task Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This task involves the implementation of a single React component.
 
-## Expanding the ESLint configuration
+### Folder Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```
+│
+├── public/
+│ ├── images/
+│ └── pto_logo
+│
+├── src/
+│ ├── assets/
+│ │ └── data/
+│ │   └── data.ts
+│ │
+│ ├── components/
+│ │ ├── UI/
+│ │ │ ├── Button.tsx
+│ │ │ ├── Switch.tsx
+│ │ │ ├── Card.tsx
+│ │ │ └── Slider.tsx
+│ │ │
+│ │ └── Integrations.tsx
+│ │
+│ ├── helpers/
+│ │ └── getinitialswitchstates.ts
+│ │
+│ ├── interfaces/
+│ │ └── interfaces.ts
+│ │
+│ ├── main.tsx
+│ ├── App.tsx
+│ ├── index.html
+│ ├── main.css
+│ └── variables.css
+│
+├── .gitignore
+├── package.json
+├── README.md
+└── vite.config.ts
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Key components
+
+- public/: Directory for static assets accessible by the public.
+    - images/: Directory for storing image assets.
+    - pto_logo/: Directory for the project's logo.
+- src/: Source directory containing application code.
+    - assets/: Directory for non-code assets.
+        - data/: Directory for data files.
+            - data.ts: TypeScript file containing data-related functionality.
+    - components/: Directory for React components.
+        - UI/: Directory for reusable UI components.
+            - Button.tsx: Button component.
+            - Switch.tsx: Switch component.
+            - Card.tsx: Card component.
+            - Slider.tsx: Slider component.
+        - Integrations.tsx: Integration component.
+    - helpers/: Directory for utility/helper functions.
+        - getinitialswitchstates.ts: Function to retrieve initial switch states.
+    - interfaces/: Directory for TypeScript interfaces.
+        - interfaces.ts: Interface definitions.
+    - main.tsx: Main entry point of the application.
+    - App.tsx: Main application component.
+    - index.html: HTML template.
+    - main.css: Main CSS file.
+    - variables.css: CSS variables file.
